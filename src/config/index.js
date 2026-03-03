@@ -9,7 +9,7 @@ module.exports = {
   dataDir,
   dbPath,
   logLevel: process.env.CASTELLAN_LOG_LEVEL || 'info',
-  defaultProvider: process.env.CASTELLAN_DEFAULT_PROVIDER || 'ollama',
+  defaultProvider: process.env.CASTELLAN_DEFAULT_PROVIDER || 'anthropic',
   heartbeatTickMs: Number(process.env.CASTELLAN_HEARTBEAT_TICK_MS || 60000),
   workspace: process.env.CASTELLAN_WORKSPACE || process.cwd(),
 };

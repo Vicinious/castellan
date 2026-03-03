@@ -1,0 +1,36 @@
+{
+  "agentId": "inbox-agent-main",
+  "agentName": "InboxAgent",
+  "defaultProvider": "anthropic",
+  "heartbeat": {
+    "tickMs": 60000,
+    "tasks": {
+      "check_inbox": { "intervalMs": 300000, "enabled": true },
+      "draft_replies": { "intervalMs": 600000, "enabled": true },
+      "check_followups": { "intervalMs": 3600000, "enabled": true }
+    }
+  },
+  "gmail": {
+    "credentialsPath": "/home/openclaw/.config/gog/credentials.json",
+    "maxFetchPerRun": 20,
+    "labels": ["INBOX", "IMPORTANT"]
+  },
+  "triage": {
+    "categories": ["urgent", "normal", "low", "newsletter", "spam"],
+    "autoArchive": ["newsletter", "spam"],
+    "urgentKeywords": ["urgent", "asap", "deadline", "critical", "emergency"]
+  },
+  "drafts": {
+    "autoCreateDraft": true,
+    "toneStyle": "professional yet friendly",
+    "maxDraftLength": 500
+  },
+  "followups": {
+    "reminderAfterDays": 3,
+    "maxReminders": 2
+  },
+  "alerts": {
+    "channel": "discord",
+    "target": "#minion-tasks"
+  }
+}

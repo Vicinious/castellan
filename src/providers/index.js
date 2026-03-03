@@ -4,6 +4,7 @@ const { BaseProvider } = require('./interface');
 const { AnthropicProvider } = require('./anthropic');
 const { OpenAIProvider } = require('./openai');
 const { OllamaProvider } = require('./ollama');
+const { CodexProvider } = require('./codex');
 const { ProviderRouter } = require('./router');
 
 function createDefaultRouter() {
@@ -16,12 +17,15 @@ function createDefaultRouter() {
       apiKey: process.env.OPENAI_API_KEY,
       model: process.env.OPENAI_MODEL || 'gpt-4.1-nano'
     }),
+    codex: new CodexProvider({
+      model: process.env.CODEX_MODEL || 'gpt-5.2-codex'
+    }),
     ollama: new OllamaProvider({ 
       model: process.env.OLLAMA_MODEL || 'llama3.2:3b' 
     }),
   };
 
-  // Priority: Claude for complex tasks, Ollama for simple, OpenAI as backup
+  // Priority: Claude for complex tasks, Ollama for simple, Codex as primary backup
   return new ProviderRouter({
     providers,
     defaultProvider: process.env.CASTELLAN_DEFAULT_PROVIDER || 'anthropic',
@@ -30,7 +34,7 @@ function createDefaultRouter() {
       { match: { taskType: 'code_generation' }, provider: 'anthropic', model: 'claude-sonnet-4-20250514', reason: 'code_quality' },
       { match: { taskType: 'simple_query' }, provider: 'ollama', model: 'llama3.2:3b', reason: 'cost_optimized' },
     ],
-    fallbackChain: ['openai', 'ollama'],
+    fallbackChain: ['codex', 'openai', 'ollama'],
   });
 }
 
@@ -38,6 +42,7 @@ module.exports = {
   BaseProvider,
   AnthropicProvider,
   OpenAIProvider,
+  CodexProvider,
   OllamaProvider,
   ProviderRouter,
   createDefaultRouter,

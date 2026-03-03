@@ -1,0 +1,31 @@
+{
+  "agentId": "content-engine-main",
+  "agentName": "ContentEngine",
+  "defaultProvider": "anthropic",
+  "heartbeat": {
+    "tickMs": 60000,
+    "tasks": {
+      "content_ideation": { "intervalMs": 86400000, "enabled": true },
+      "draft_generation": { "intervalMs": 43200000, "enabled": true },
+      "publish_scheduled": { "intervalMs": 3600000, "enabled": true }
+    }
+  },
+  "content": {
+    "targetSite": "anthonybahn.com",
+    "categories": ["tech", "ai", "productivity", "entrepreneurship"],
+    "wordCountMin": 800,
+    "wordCountMax": 2000,
+    "tone": "professional yet approachable",
+    "autoPublish": false
+  },
+  "seo": {
+    "minKeywordDensity": 0.01,
+    "maxKeywordDensity": 0.03,
+    "requireMetaDescription": true,
+    "requireAltText": true
+  },
+  "alerts": {
+    "channel": "discord",
+    "target": "#minion-tasks"
+  }
+}

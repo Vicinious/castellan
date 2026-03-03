@@ -1,0 +1,52 @@
+{
+  "agentId": "project-tracker-main",
+  "agentName": "ProjectTracker",
+  "defaultProvider": "anthropic",
+  "heartbeat": {
+    "tickMs": 60000,
+    "tasks": {
+      "check_projects": { "intervalMs": 3600000, "enabled": true },
+      "check_deadlines": { "intervalMs": 86400000, "enabled": true },
+      "weekly_digest": { "cronExpression": "0 9 * * 1", "enabled": true }
+    }
+  },
+  "projects": [
+    {
+      "name": "GridStrike",
+      "domain": "gaming",
+      "repoPath": "/srv/openclaw-shared/gridstrike",
+      "priority": "high"
+    },
+    {
+      "name": "Space Empire",
+      "domain": "gaming", 
+      "repoPath": "/srv/openclaw-shared/space-empire",
+      "priority": "medium"
+    },
+    {
+      "name": "Castellan",
+      "domain": "infra",
+      "repoPath": "/home/openclaw/.openclaw/workspace/projects/castellan",
+      "priority": "high"
+    },
+    {
+      "name": "Twitter Bot",
+      "domain": "marketing",
+      "repoPath": "/srv/openclaw-shared/twitter-bot",
+      "priority": "medium"
+    }
+  ],
+  "thresholds": {
+    "staleDays": 7,
+    "deadlineWarnDays": 3
+  },
+  "workingHours": {
+    "start": 9,
+    "end": 21,
+    "timezone": "America/Chicago"
+  },
+  "alerts": {
+    "channel": "discord",
+    "target": "#minion-tasks"
+  }
+}

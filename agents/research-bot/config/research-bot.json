@@ -1,0 +1,44 @@
+{
+  "agentId": "research-bot-main",
+  "agentName": "ResearchBot",
+  "defaultProvider": "anthropic",
+  "heartbeat": {
+    "tickMs": 60000,
+    "tasks": {
+      "news_scan": { "intervalMs": 14400000, "enabled": true },
+      "competitor_check": { "intervalMs": 86400000, "enabled": true },
+      "knowledge_synthesis": { "intervalMs": 604800000, "enabled": true }
+    }
+  },
+  "research": {
+    "topics": [
+      "AI agents",
+      "autonomous systems",
+      "LLM applications",
+      "indie game development",
+      "content marketing"
+    ],
+    "competitors": [
+      "cursor.sh",
+      "continue.dev",
+      "aider.chat"
+    ],
+    "newsources": [
+      "Hacker News",
+      "AI News",
+      "TechCrunch AI"
+    ]
+  },
+  "output": {
+    "reportsDir": "/home/openclaw/.openclaw/workspace/research",
+    "maxFindingsPerRun": 10
+  },
+  "ratelimits": {
+    "searchesPerHour": 20,
+    "fetchesPerHour": 50
+  },
+  "alerts": {
+    "channel": "discord",
+    "target": "#minion-tasks"
+  }
+}
