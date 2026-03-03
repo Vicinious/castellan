@@ -1,0 +1,12 @@
+{
+  "name": "castellan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Castellan autonomous agent runtime",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "migrate": "node src/db/migrate.js"
+  }
+}
