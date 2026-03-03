@@ -1,0 +1,42 @@
+[
+  {
+    "name": "contentengine",
+    "registered": 2,
+    "tasks": [
+      "contentengine_primary_loop",
+      "contentengine_maintenance"
+    ],
+    "primaryOk": true,
+    "maintenanceOk": true
+  },
+  {
+    "name": "inboxagent",
+    "registered": 2,
+    "tasks": [
+      "inboxagent_primary_loop",
+      "inboxagent_maintenance"
+    ],
+    "primaryOk": true,
+    "maintenanceOk": true
+  },
+  {
+    "name": "projecttracker",
+    "registered": 2,
+    "tasks": [
+      "projecttracker_primary_loop",
+      "projecttracker_maintenance"
+    ],
+    "primaryOk": true,
+    "maintenanceOk": true
+  },
+  {
+    "name": "researchbot",
+    "registered": 2,
+    "tasks": [
+      "researchbot_primary_loop",
+      "researchbot_maintenance"
+    ],
+    "primaryOk": true,
+    "maintenanceOk": true
+  }
+]
