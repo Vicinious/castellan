@@ -1,0 +1,25 @@
+{
+  "agentId": "fleetguard-main",
+  "agentName": "FleetGuard",
+  "defaultProvider": "ollama",
+  "heartbeat": {
+    "tickMs": 60000,
+    "tasks": {
+      "fleet_health_check": { "intervalMs": 300000, "enabled": true },
+      "service_heal": { "intervalMs": 600000, "enabled": true },
+      "disk_cleanup": { "intervalMs": 3600000, "enabled": true }
+    }
+  },
+  "targets": [
+    { "name": "localhost", "host": "127.0.0.1", "ssh": false }
+  ],
+  "thresholds": {
+    "cpuWarn": 85,
+    "memWarn": 90,
+    "diskWarn": 90
+  },
+  "alerts": {
+    "channel": "discord",
+    "target": "#minion-tasks"
+  }
+}
